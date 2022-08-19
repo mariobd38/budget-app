@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budgetly</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">        <link type="text/css" href="/css/base.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&family=Hind:wght@400;500;600;700&family=Lobster&family=Open+Sans:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <style> 
+            body {
+                margin:0;
+            }
+            .fab {
+                color: #2a9d8f;
+                padding: 10px;
+                font-size: 30px;
+                width: 30px;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 50%;
+            }
+            .text-reset {
+                text-decoration: none;
+                color: #2a9d8f;
+            }
+            .text-reset:hover, .footer-sec{
+               color: #2a9d8f !important; 
+               text-decoration: none;
+            }
+
+            nav,.budgetly-color, .budgetly-color:focus {
+                background-color: #2a9d8f;
+            }
+            .budgetly-color:hover {
+              background-color: gold;
+              color: black;
+            }
+            .nav-title {
+                font-size: 2em;
+                font-family: 'Arimo';
+                font-weight: 500;
+                margin:0;
+            }
+
+            .navbar-nav,
+            .mr-auto {
+                flex: 1;
+                margin: auto !important;
+                display: flex;
+                justify-content: space-between;
+            }
+            
+            span img {
+                width: 60px;
+                margin-bottom: 5px;
+            } 
+        </style>
+    </head>
+    <body>
+        {% block styles %}
+        {% endblock styles %}
+        <!-- <nav class="navbar navbar-expand-md bg-primary">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                    <a class="navbar-brand nav-title" >Social</a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        {% block page %}
+                        {% endblock page %}
+
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
+
+
+
+        <nav class="navbar navbar-expand-sm py-4">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <a class="navbar-brand nav-title text-white ms-3 " href="/" >budgetly</a> <span><img src="/static/piggy_bank.png" alt="" ></span>
+                    {% block nav_main_home_content %}
+                    {% endblock nav_main_home_content %}
+                    
+                </div>  
+            </div>
+        </nav>
+        
+        
+            {% block content %}
+            {% endblock content %}
+
+
+
+        <footer class="text-center text-lg-start bg-light text-muted mt-5">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+              <!-- Left -->
+              <div class="me-5 d-lg-block">
+                <span>Get connected with us on social networks:</span>
+              </div>
+              <!-- Left -->
+          
+
+              
+
+
+              <!-- Right -->
+              <div class="container">
+
+                <a href="https://www.facebook.com" class="me-4 fab fa-facebook"></a>
+                <a href="https://www.twitter.com" class="me-4 fab fa-twitter"></a>
+                <a href="https://www.tiktok.com" class="me-4 fab fa-tiktok"></a>
+                <a href="https://www.instagram.com" class="me-4 fab fa-instagram"></a>
+                <!-- <a href="https://www.linkedin.com" class="me-4 fab fa-linkedin"></a> -->
+                <!-- <a href="https://www.github.com" class="me-4 fab fa-github"></a> -->
+
+              </div>
+              <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+          
+            <!-- Section: Links  -->
+            <section class="">
+              <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4 footer-sec">
+                      Budgetly
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">About Us</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Careers</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Contact Us</a>
+                      </p>
+                      <p>
+                        <a href="#!" class="text-reset">Copyright</a>
+                      </p>
+        
+                  </div>
+                  <!-- Grid column -->
+          
+                  <!-- Grid column -->
+                  
+                  <!-- Grid column -->
+          
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4 footer-sec">
+                      Useful links
+                    </h6>
+                    <p>
+                      <a href="#!" class="text-reset">Pricing</a>
+                    </p>
+                    <p>
+                      <a href="#!" id="settings" class="text-reset">Settings</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Orders</a>
+                    </p>
+                    <p>
+                      <a href="#!" class="text-reset">Help</a>
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+          
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold ms-3 mb-4 footer-sec">
+                      Contact
+                    </h6>
+                    <p><i class="fas fa-home me-3"></i> San Diego, CA</p>
+                    <p>
+                      <i class="fas fa-envelope me-3"></i>
+                      info@budgetly.com
+                    </p>
+                    <p><i class="fas fa-print me-3"></i> +1 (619) 451 4842</p>
+                  </div>
+                  <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+              </div>
+            </section>
+            <!-- Section: Links  -->
+          
+            <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+              © 2022 Copyright:
+              <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Budgetly</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<style>
+    h3 {
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        /* font-weight: 600; */
+    }
+    h5 {
+        text-align: start;
+    }
+    .key-word {
+        color: #2a9d8f;
+    }
+    .button-color {
+        background-color: #2a9d8f;
+    }
+    .home-button:hover {
+        background-color: gold;
+        color: black;
+    }
+    .descriptions {
+        width:20em;
+    }
+    #forgot {
+        text-decoration: none;
+        color: #2a9d8f;
+    }
+    .form-control {
+        border-radius: 30px;
+        background-color: #fcfcfc;
+        border:2px solid #2a9d8f;
+    }
+    .button-color:hover {
+        background-color: gold;
+    }
+    .password-instructions {
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        margin:auto;
+    }
+    #password-not-met {
+        width:400px;
+    }
+
+    
+</style>
+
+<div class="container-fluid d-flex justify-content-center flex-column flex-sm-row align-items-center">
+    
+    <div class="descriptions me-5 mt-5">
+        
+        <h5>Admin Sign In</h5>
+        <form action="" method="POST">{% csrf_token %}
+            <div class="row g-3 mb-md-3 mb-4">
+                <div class=" col-12 ">
+                    <input type="email" name="email" class="form-control text-start" id="email" placeholder="Email Address">
+                </div>
+                <div class=" col-12 ">
+                    <input type="password" name="password" class="form-control text-start" id="password" placeholder="Password">
+                </div>
+                {% if error %}
+                    <p style="color:#ef233c" class="w-100">Error: {{ error }}</p>
+                {% endif %}
+                <a href="/forgot" id="forgot">Forgot password <span class="ms-2">></span></a>
+                <div>
+                    <button class="btn button-color">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<style>
+    h3 {
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        /* font-weight: 600; */
+    }
+    h5 {
+        text-align: start;
+    }
+    .key-word {
+        color: #2a9d8f;
+    }
+    .button-color {
+        background-color: #2a9d8f;
+    }
+    #forgot {
+        text-decoration: none;
+        color: #2a9d8f;
+    }
+    .has-account {
+        text-decoration: none;
+    }
+    .has-account:hover {
+        color: gold;
+    }
+    .form-control {
+        border-radius: 30px;
+        background-color: #fcfcfc;
+        border:2px solid #2a9d8f;
+    }
+    button[type="submit"]:hover {
+        background-color: gold;
+    }
+    .password-instructions {
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        margin:auto;
+    }
+    #password-not-met {
+        width:400px;
+    }
+
+    
+</style>
+
+
+
+<div class="container-fluid mt-5">
+    <div class="d-flex justify-content-center ">
+        <div class="descriptions w-auto">
+            <h3 class="mb-4">Welcome to budgetly!</h3>
+            <a href="/" class="has-account key-word">Already have an account? Sign in <span class="ms-1">></span> </a>
+            <form action="" method="POST">{% csrf_token %}
+                <div class="  g-3 mb-md-3 mb-4 mt-2">
+                    <div class="row">
+                        <div class="col-6 col-md-12">
+                            <label for="f_name" class="form-label">Enter your first name</label>
+                            <div class=" m-0">
+                                <input required type="text" name="f_name" class="form-control text-start" id="f_name">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-12">
+                            <label for="l_name" class="form-label">Enter your last name</label>
+                            <div class=" m-0">
+                                <input required  type="text" name="l_name" class="form-control text-start" id="l_name">
+                            </div>
+                        </div>
+                        
+
+                
+                    </div>
+                    
+
+                    <label for="email" class="form-label">Enter your email</label>
+                    <div class=" col-12 m-0">
+                        <input required pattern="/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]" type="email" name="email" class="form-control text-start" id="email">
+                    </div>
+                    {% if email_error %}
+                        <p style="color:#ef233c" class="w-100">Error: {{ email_error }}</p>
+                    {% endif %}
+
+                    <label for="password" class="form-label">Create a password</label>
+                    <div class=" col-12 m-0">
+                        <input required type="password" name="password" class="form-control text-start" id="password">
+                    </div>
+
+                    <div id="passwordHelp" class="form-text">
+                        {% if error %}
+                            <p id="password-not-met">Error: At least one requirement has not been met</p>
+                        {% endif %}
+                        <p class="m-0">Password requirements:</p>
+                        <div  class="password-instructions">
+                            <ul>
+                                {% if error %}
+                                    {% if error.password_not_matching %}
+                                        <li  style="color:#ef233c"> Passwords must match </li>
+                                    {% else %}
+                                        <li style="color:#2a9d8f">Passwords must match </li>
+                                    {% endif %}
+                                    {% if error.password_not_long %}
+                                        <li style="color:#ef233c">At least 8 characters </li>
+                                    {% else %}
+                                        <li style="color:#2a9d8f">At least 8 characters </li>
+                                    {% endif %}
+                                    {% if error.password_no_lc %}
+                                        <li style="color:#ef233c"> At least 1 lowercase </li>
+                                    {% else %}
+                                        <li style="color:#2a9d8f">At least 1 lowercase </li>
+                                    {% endif %}
+                                    {% if error.password_no_uc %}
+                                        <li style="color:#ef233c"> At least 1 uppercase</li>
+                                    {% else %}
+                                        <li style="color:#2a9d8f">At least 1 uppercase </li>
+                                    {% endif %}
+                                    {% if error.password_no_digit %}
+                                        <li style="color:#ef233c"> At least 1 number </li>
+                                    {% else %}
+                                        <li style="color:#2a9d8f">At least 1 number </li>
+                                    {% endif %}
+                                {% else %}
+                                    <li>Passwords must match</li>
+                                    <li>At least 8 characters</li>
+                                    <li>At least 1 lowercase</li>
+                                    <li>At least 1 uppercase</li>
+                                    <li>At least 1 number</li>
+                                {% endif %}
+                                
+                            </ul>
+                        </div>
+                    </div>
+  
+
+
+                    <label for="confirm-password" class="form-label mt-2">Confirm password</label>
+                    <!-- {% if error %}
+                        <p style="color:red">{{ error }}</p>
+                    {% endif %}
+
+
+                    {% for k,v in error.items %}
+                        <p style="color:blue">{{ v }}</p>
+                    {% endfor %} -->
+                    <div class=" col-12 m-0">
+                        <input required type="password" name="confirm-password" class="form-control text-start" id="confirm-password">
+                    </div>
+                    <button type="submit" class="btn button-color col-6  mt-3 ms-2">Create Account</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+
+{% block login_form %}
+    <div class="descriptions me-5">
+            
+        <h5>Sign In</h5>
+        <form action="" method="POST">{% csrf_token %}
+            <div class="row g-3 mb-md-3 mb-4">
+                <div class=" col-12 ">
+                    <input type="email" name="email" class="form-control text-start" id="email" placeholder="Email Address">
+                </div>
+                <div class=" col-12 ">
+                    <input type="password" name="password" class="form-control text-start" id="password" placeholder="Password">
+                </div>
+                {% if error %}
+                    <p style="color:#ef233c" class="w-100">Error: {{ error }}</p>
+                {% endif %}
+
+                <a href="/forgot" id="forgot" class="mt-0">Forgot password <span class="ms-2">></span></a>
+                <div>
+                    <button class="btn home-button">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
